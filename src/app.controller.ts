@@ -5,13 +5,13 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get(':countingLength')
-  getFibonacciSequence(@Param('countingLength') countingLength: number) {
+  @Get(':memberCount')
+  getFibonacciSequence(@Param('memberCount') memberCount: number) {
    
-    if (countingLength < 1 || countingLength > 100) {
+    if (memberCount < 1 || memberCount > 100) {
       throw new BadRequestException('รับ input member count เฉพาะ 1-100.');
     }
 
-    return this.appService.getFibonacciSequence(countingLength);    
+    return this.appService.getFibonacciSequence(memberCount);    
   }
 }
